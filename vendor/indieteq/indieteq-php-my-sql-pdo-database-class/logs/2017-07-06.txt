@@ -1,0 +1,9 @@
+Time : 23:55:25
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ééééééé' in 'field list'
+Raw SQL : INSERT INTO `post` (title, header, content, author_id) VALUES (ééééééé, :header, :content, :author)
+
+Time : 11:21:16
+SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+
+Time : 11:19:53
+SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)

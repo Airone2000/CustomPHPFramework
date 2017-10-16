@@ -1,0 +1,11 @@
+{% extends "base-layout.html.twig" %}
+
+{% block header %}
+
+    {% include "inc/main-header.html.twig" with {
+        "title" : "Welcome !",
+        "subtitle" : "My Name's Erwan GUILLOU and you're on my Blog",
+        "img" : "asset/img/core-head.png"
+    } %}
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "core/base-layout.html.twig" %}
+
+{% block body %}
+        <div class="jumbotron text-center">
+            <h1>Want to download my CV ?</h1>
+            <p>Please, feel free to do so.</p>
+            <p><a href="{{ base_uri }}/asset/pdf/cv.pdf" download><button class="btn btn-danger"><i class="fa fa-download"></i> Download CV</button></a></p>
+        </div>
+
+        <form id="contact" method="post" class="text-center">
+
+            {# CSRF #}
+            <input type="hidden" name="csrf_token" value="{{ blog.getCsrfToken }}" />
+
+
+            {{ mailSent|raw }}
+
+            <br>
+            <h1><i class="fa fa-envelope"></i> Let's have a talk</h1>
+            <p>Want to get in touch with me ? Please, fill out the form below. <br> I'm already writting back to you !</p>
+            <input type="hidden" name="action" value="send_mail" />
+
+            <div class="container">
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label>Name</label>
+                        <input type="text" class="form-control" placeholder="Name" name="name" value="{{ name }}" required data-validation-required-message="Please enter your name.">
+                        <p class="help-block text-danger">{{ form.errors.name }}</p>
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label>Email Address</label>
+                        <input type="email" class="form-control" placeholder="Email Address" name="email" value="{{ email }}" required data-validation-required-message="Please enter your email address.">
+                        <p class="help-block text-danger">{{ form.errors.email }}</p>
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label>Message</label>
+                        <textarea rows="5" class="form-control" placeholder="Message" name="message" required data-validation-required-message="Please enter a message.">{{ message }}</textarea>
+                        <p class="help-block text-danger">{{ form.errors.message }}</p>
+                    </div>
+                </div>
+                <br>
+                <div id="success"></div>
+                <div class="row">
+                    <div class="form-group col-xs-12">
+                        <button type="submit" class="btn btn-default">Send</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+{% endblock %}

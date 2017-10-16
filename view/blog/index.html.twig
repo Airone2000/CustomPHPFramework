@@ -1,0 +1,43 @@
+{% extends "blog/base-layout.html.twig" %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+                <p class="text-right">
+                    <a href="{{ uri }}/blog/add"><button class="btn btn-danger"><i class="fa fa-plus"></i> Add new BlogPost</button></a>
+                </p>
+
+                <hr>
+
+                {% for blogpost in blogposts %}
+
+                    <div id="post-{{ blogpost.id }}" class="post-preview">
+                        <a href="#">
+                            <h2 class="post-title">
+                                {{ blogpost.title }}
+                            </h2>
+
+                            {% if blogpost.header is not empty %}
+                                <h3 class="post-subtitle">{{ blogpost.header }}</h3>
+                            {% endif %}
+                        </a>
+                        <p class="post-meta">Posted by {{ blogpost.author.username ~ ' on ' ~ blogpost.publishingDate|date}}</p>
+                        <p>
+                            <a href="{{ uri }}/blog/edit?id={{ blogpost.id }}"><button class="btn btn-default">Edit it <i class="fa fa-pencil"></i></button></a>
+                            <a href="{{ uri }}/blog/view?id={{ blogpost.id }}"><button class="btn btn-info">Read it !</button></a>
+                        </p>
+                    </div>
+
+                    {% if not loop.last %}
+                        <hr>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "blog/base-layout.html.twig" %}
+
+{% block header %}
+
+    {% include "inc/main-header.html.twig" with {
+    "title" : "Blog",
+    "subtitle" : "Let's give birth to a New BlogPost !",
+    "img" : "asset/img/core-head.png"
+    } %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    {% include "blog/inc/form.html.twig" with {'blogpost' : blogpost, 'errors' : errors} %}
+
+{% endblock %}

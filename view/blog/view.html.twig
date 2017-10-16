@@ -1,0 +1,33 @@
+{% extends "blog/base-layout.html.twig" %}
+
+{% block header %}
+
+    {% include "inc/main-header.html.twig" with {
+    "title" : blogpost.title,
+    "subtitle" : blogpost.header,
+    "img" : "asset/img/core-head.png"
+    } %}
+
+{% endblock %}
+
+{% block body %}
+
+    <div id="viewpost" class="container">
+        <div class="row">
+
+            <blockquote class="text-center"><small>Proudly written by {{ blogpost.author.username ~ ' on ' ~ blogpost.publishing_date|date }}
+                {% if blogpost.editingDate %}
+                    | Lastly edited on {{ blogpost.editingDate|date ~ ' by ' ~ blogpost.author.username }}
+                {% endif %}
+            </small></blockquote>
+
+            <p>
+                <a href="{{ uri }}/blog/index#post-{{ blogpost.id }}"><button class="btn btn-info">Back</button></a>
+                <a href="{{ uri }}/blog/edit?id={{ blogpost.id }}"><button class="btn btn-default">Edit it </button></a>
+            </p>
+
+            <p>{{ blogpost.content }}</p>
+        </div>
+    </div>
+
+{% endblock %}

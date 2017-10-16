@@ -1,0 +1,50 @@
+.navbar-brand {
+    color: #333 !important;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+@media only screen and (min-width: 768px) {
+    .navbar-custom .nav li a {
+        color: #555;
+        padding: 20px;
+        text-shadow: #fff 0px 0px 5px;
+    }
+
+    .navbar-brand {
+        box-shadow: #555 0px 0px 3px;
+        background: rgba(255, 255, 255, .5);
+    }
+}
+
+.site-heading {
+    padding: 100px 15px !important;
+}
+
+.intro-header {
+    margin-bottom: 0 !important;
+}
+
+footer {
+    padding: 30px 15px;
+    padding-bottom: 0;
+    background: #333 !important;
+    margin-top: 30px;
+}
+
+footer > * {
+    color: #fff !important;
+}
+
+#social {
+    margin: 30px auto;
+}
+
+.subheading,
+.site-heading h1,
+#viewpost,
+.post-preview h2,
+.post-preview h3,
+.post-preview p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
